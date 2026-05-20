@@ -30,8 +30,6 @@ The main difference between Navigation mode and Snapshot mode is when they actua
 
 ### 4. Name three things we could do to improve the CSE 110 shop site based on the Lighthouse results.
 
-The site actually scored really well overall (Performance 99, Accessibility 90, Best Practices 100, SEO 91), but theres still some stuff lighthouse flagged that could be improved.
-
 1. Add a `<meta name="description">` tag to the index.html. Lighthouse specifically flagged "Document does not have a meta description" as a failed SEO audit, which is the reason the SEO score is sitting at 91 instead of 100. This is because search engines use the meta description to understand what the page is actually about, so without one the page is harder to index properly. Adding a description tag would directly fix this issue and bump up the SEO score.
 
 2. Get rid of the render-blocking main.css file. Lighthouse flagged `assets/styles/main.css` under render-blocking requests, which basically means that the browser has to wait for the css file to fully download before it can render anything on the page. This is bad because it makes the page take longer to actually show up to the user. Since the css file is only 1 KB, the easiest fix would be to just inline the css directly into the `<head>` of the index.html, or load it asynchronously so it doesnt block the render. This would lower the LCP and FCP times.
